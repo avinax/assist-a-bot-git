@@ -1,0 +1,549 @@
+version: "2.0"
+stories:
+- story: Happy Path content attribution
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: onedna_queries
+  - action: utter_generic_queries
+  - intent: dashboard_list_queries
+  - action: utter_dashboard_list
+  - intent: content_attribution_queries
+  - action: utter_about_content_attribution
+  - action: utter_ask_about_access
+  - intent: affirm
+  - action: utter_access_confirm_response
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Happy Path content attribution 2
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: onedna_queries
+  - action: utter_generic_queries
+  - intent: dashboard_list_queries
+  - action: utter_dashboard_list
+  - intent: content_attribution_queries
+  - action: utter_about_content_attribution
+  - action: utter_ask_about_access
+  - intent: deny
+  - action: utter_access_deny_response
+  - intent: affirm
+  - action: utter_help_create_issue
+  - action: create_issue_form
+  - active_loop: create_issue_form
+  - active_loop: null
+  - action: action_create_issue
+  - action: utter_slots_values
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Happy Path channel attribution 2
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: onedna_queries
+  - action: utter_generic_queries
+  - intent: dashboard_list_queries
+  - action: utter_dashboard_list
+  - intent: channel_attribution_queries
+  - action: utter_about_channel_attribution
+  - action: utter_ask_about_access
+  - intent: deny
+  - action: utter_access_deny_response
+  - intent: affirm
+  - action: utter_help_create_issue
+  - action: create_issue_form
+  - active_loop: create_issue_form
+  - active_loop: null
+  - action: action_create_issue
+  - action: utter_slots_values
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Happy Path - 2 access query
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: access_queries
+  - action: utter_access_queries
+  - action: utter_anything_else
+- story: Happy Path -3 Create issue or jira tickets
+  steps:
+  - intent: create_issue
+  - action: utter_help_create_issue
+  - action: utter_ask_project
+  - intent: enter_data
+    entities:
+    - project: DMPP
+  - slot_was_set:
+    - project: DMPP
+  - action: create_issue_form
+  - active_loop: create_issue_form
+  - active_loop: null
+  - action: action_create_issue
+  - action: utter_slots_values
+  - action: utter_anything_else
+- story: Happy Path - 4 more than an issue
+  steps:
+  - intent: create_issue
+  - action: utter_help_create_issue
+  - action: utter_ask_project
+  - intent: enter_data
+    entities:
+    - project: DMPP
+  - slot_was_set:
+    - project: DMPP
+  - action: create_issue_form
+  - active_loop: create_issue_form
+  - active_loop: null
+  - action: action_create_issue
+  - action: utter_slots_values
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_what_help
+- story: Happy path -- testing
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: enter_data
+  - intent: access_related
+  - action: utter_possibilities
+  - intent: create_issue
+  - action: utter_help_create_issue
+  - action: utter_ask_project
+- story: Happy Path-5 Qucik Insights about the Market
+  steps:
+  - intent: quick_insights
+  - action: action_quick_insights
+- story: anything else? - no
+  steps:
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+- story: anything else?
+  steps:
+  - action: utter_anything_else
+  - intent: enter_data
+  - action: utter_not_sure
+  - action: utter_possibilities
+- story: anything else? - yes
+  steps:
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_what_help
+- story: anything else? - no
+  steps:
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+- story: anything else?
+  steps:
+  - action: utter_anything_else
+  - intent: enter_data
+  - action: utter_not_sure
+  - action: utter_possibilities
+- story: Story show issues
+  steps:
+  - intent: show_issues
+  - action: utter_ask_project
+  - action: action_show_issues
+- story: Story issue details
+  steps:
+  - intent: show_issues
+  - action: utter_ask_project
+  - intent: enter_data
+    entities:
+    - project: DMPP
+  - slot_was_set:
+    - project: DDMPP
+  - action: action_show_issues
+  - intent: enter_data
+  - action: action_show_issue_details
+  - action: utter_anything_else
+- story: Story from Conversation ID cf46f105e18d4b1ea6d8df9087f23d71
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: onedna_queries
+  - action: utter_generic_queries
+  - intent: dashboard_datasources_list_queries
+  - action: utter_about_onedna_datasources
+  - action: utter_ask_about_access
+  - intent: deny
+  - action: utter_access_deny_response
+  - intent: affirm
+  - action: utter_help_create_issue
+  - action: create_issue_form
+  - active_loop: create_issue_form
+  - active_loop: null
+  - action: action_create_issue
+  - action: utter_slots_values
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Story from Conversation ID 16282110c7e74867a8389c171fb888c4
+  steps:
+  - action: utter_ask_about_access
+  - intent: deny
+  - action: utter_access_deny_response
+  - intent: affirm
+  - action: utter_help_create_issue
+  - action: utter_ask_project
+  - intent: enter_data
+    entities:
+    - project: DMPP
+  - slot_was_set:
+    - project: DMPP
+  - action: create_issue_form
+  - active_loop: create_issue_form
+  - slot_was_set:
+    - requested_slot: email_id
+  - intent: nlu_fallback
+  - action: create_issue_form
+  - slot_was_set:
+    - email_id: avinax
+  - slot_was_set:
+    - requested_slot: first_last_name
+  - intent: nlu_fallback
+  - action: create_issue_form
+  - slot_was_set:
+    - first_last_name: av
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_issue
+  - action: utter_slots_values
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Story from Conversation ID ea24e83e0b9147fa9407090fc2ff7c3c
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: onedna_queries
+  - action: utter_generic_queries
+  - intent: dashboard_list_queries
+  - action: utter_dashboard_list
+  - intent: content_attribution_queries
+  - action: utter_about_content_attribution
+  - action: utter_ask_about_access
+  - intent: deny
+    entities:
+    - confirm_access: No
+  - slot_was_set:
+    - confirm_access: No
+  - action: utter_access_deny_response
+  - intent: affirm
+  - action: utter_help_create_issue
+  - action: create_issue_form
+  - active_loop: create_issue_form
+  - slot_was_set:
+    - requested_slot: email_id
+  - intent: nlu_fallback
+  - action: create_issue_form
+  - slot_was_set:
+    - email_id: av
+  - slot_was_set:
+    - requested_slot: first_last_name
+  - intent: nlu_fallback
+  - action: create_issue_form
+  - slot_was_set:
+    - first_last_name: a m
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_issue
+  - action: utter_slots_values
+  - action: utter_anything_else
+- story: Story from Conversation ID b615101a8dbf4530b0d82aec3e517ddd
+  steps:
+  - action: create_issue_form
+  - active_loop: create_issue_form
+  - slot_was_set:
+    - requested_slot: email_id
+  - slot_was_set:
+    - email_id: av
+  - slot_was_set:
+    - requested_slot: first_last_name
+  - slot_was_set:
+    - first_last_name: a m
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_issue
+  - action: utter_slots_values
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Story from Conversation ID 532c7109502f4589833146f81639e48d
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: onedna_queries
+  - action: utter_generic_queries
+  - intent: dashboard_list_queries
+  - action: utter_dashboard_list
+  - intent: content_attribution_queries
+  - action: utter_about_content_attribution
+  - action: utter_ask_about_access
+  - intent: deny
+    entities:
+    - confirm_access: No
+  - slot_was_set:
+    - confirm_access: No
+  - action: utter_access_deny_response
+  - intent: affirm
+  - action: utter_help_create_issue
+  - action: create_issue_form
+  - active_loop: create_issue_form
+  - slot_was_set:
+    - requested_slot: email_id
+  - intent: nlu_fallback
+  - action: create_issue_form
+  - slot_was_set:
+    - email_id: av
+  - slot_was_set:
+    - requested_slot: first_last_name
+  - intent: nlu_fallback
+  - action: create_issue_form
+  - slot_was_set:
+    - first_last_name: a m
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_issue
+  - action: utter_slots_values
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Story from Conversation ID ec497e5691bd49748d20e46894a8922f
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: onedna_queries
+  - action: utter_generic_queries
+  - intent: dashboard_list_queries
+  - action: utter_dashboard_list
+  - intent: content_attribution_queries
+  - action: utter_about_content_attribution
+  - action: utter_ask_about_access
+  - intent: deny
+    entities:
+    - confirm_access: No
+  - slot_was_set:
+    - confirm_access: No
+  - action: utter_access_deny_response
+  - intent: affirm
+  - action: utter_help_create_issue
+  - action: create_issue_form
+  - active_loop: create_issue_form
+  - slot_was_set:
+    - requested_slot: email_id
+  - intent: nlu_fallback
+  - action: create_issue_form
+  - slot_was_set:
+    - email_id: avinax
+  - slot_was_set:
+    - requested_slot: first_last_name
+  - intent: nlu_fallback
+  - action: create_issue_form
+  - slot_was_set:
+    - first_last_name: a a
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_issue
+  - action: utter_slots_values
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Story from Conversation ID ee3e084e699c405193543334740b2967
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: onedna_queries
+  - action: utter_generic_queries
+  - intent: dashboard_datasources_list_queries
+    entities:
+    - about_onedna: DashboardDataSources
+  - slot_was_set:
+    - about_onedna: DashboardDataSources
+  - action: utter_about_onedna_datasources
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Story from Conversation ID 342d33997de7408b9a8af1521a783251
+  steps:
+  - intent: quote_email_id
+  - action: utter_ask_first_last_name
+  - intent: quote_first_last_name
+  - action: utter_slots_values
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Story from Conversation ID 83e2b60be43541dcb440c842d34cfc7c
+  steps:
+  - intent: dashboard_datasources_list_queries
+    entities:
+    - about_onedna: DashboardDataSources
+  - slot_was_set:
+    - about_onedna: DashboardDataSources
+  - action: utter_about_onedna_datasources
+  - action: utter_ask_about_access
+  - intent: deny
+  - action: utter_access_deny_response
+  - intent: affirm
+  - action: utter_help_create_issue
+  - slot_was_set:
+    - about_onedna: DashboardDataSources
+  - action: utter_ask_email_id
+  - intent: quote_email_id
+  - action: utter_ask_first_last_name
+  - intent: quote_first_last_name
+  - action: utter_slots_values
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Story from Conversation ID a45d280675f04e2b9596103ba2b4e332
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: onedna_queries
+  - action: utter_generic_queries
+  - intent: dashboard_datasources_list_queries
+  - action: utter_about_onedna_datasources
+  - action: utter_ask_about_access
+  - intent: affirm
+  - action: utter_access_confirm_response
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Story from Conversation ID c405b04f3c5346fe86100735d70b43b8
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: onedna_queries
+  - action: utter_generic_queries
+  - intent: dashboard_datasources_list_queries
+  - action: utter_about_onedna_datasources
+  - action: utter_ask_about_access
+  - intent: deny
+  - action: utter_access_deny_response
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Story from Conversation ID cb5ddc3ae8f842d3a8a79f493f7c2409
+  steps:
+  - action: utter_ask_about_access
+  - intent: deny
+  - action: utter_access_deny_response
+  - intent: affirm
+  - action: utter_help_create_issue
+  - action: create_issue_form
+  - active_loop: create_issue_form
+  - slot_was_set:
+    - requested_slot: email_id
+  - intent: quote_email_id
+  - action: create_issue_form
+  - slot_was_set:
+    - email_id: av
+  - slot_was_set:
+    - requested_slot: first_last_name
+  - intent: quote_first_last_name
+  - action: create_issue_form
+  - slot_was_set:
+    - first_last_name: a m
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_issue
+  - action: utter_slots_values
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Story from Conversation ID 92933a070d2348c298f1ac628c478363
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: access_request
+  - action: utter_ask_about_access
+  - intent: deny
+  - action: utter_access_deny_response
+  - intent: affirm
+  - action: utter_help_create_issue
+  - action: create_issue_form
+  - active_loop: create_issue_form
+  - slot_was_set:
+    - requested_slot: email_id
+  - intent: nlu_fallback
+  - action: create_issue_form
+  - slot_was_set:
+    - email_id: avi
+  - slot_was_set:
+    - requested_slot: first_last_name
+  - intent: quote_first_last_name
+  - action: create_issue_form
+  - slot_was_set:
+    - first_last_name: a m
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_issue
+  - action: utter_slots_values
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+- story: Story from Conversation ID 83826459edd44a5685be96dae7812186
+  steps:
+  - intent: greet
+  - action: utter_serivces_offered
+  - intent: access_request
+  - action: utter_ask_about_access
+  - intent: affirm
+  - action: utter_access_confirm_response
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - intent: goodbye
+  - action: utter_goodbye
+rules:
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+- rule: Ask for more help anytime the user says thanks
+  steps:
+  - intent: thankyou
+  - action: utter_hope_that_help
+- rule: WIP
+  steps:
+  - intent: work_in_progress
+  - action: utter_work_in_progress

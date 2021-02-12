@@ -1,0 +1,297 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- create_issue
+- issue_details
+- enter_data
+- show_issues
+- mood_sad
+- nlu_fallback
+- serivces_offered
+- access_queries
+- generic_queries
+- onedna_queries
+- quick_insights
+- quick_stats
+- access_related
+- thankyou
+- dashboard_list_queries
+- content_attribution_queries
+- channel_attribution_queries
+- quote_first_last_name
+- quote_email_id
+- dashboard_datasources_list_queries
+- work_in_progress
+- feature_request
+- feedback
+- access_request
+- access_issue
+entities:
+- issue_id
+- project
+- summary
+- description
+- service_type
+- state
+- first_last_name
+- email_id
+- confirm_access
+- about_onedna
+slots:
+  assignee:
+    type: text
+    influence_conversation: false
+  description:
+    type: text
+    influence_conversation: false
+  issue_id:
+    type: text
+    influence_conversation: false
+  project:
+    type: text
+    influence_conversation: false
+  summary:
+    type: text
+    influence_conversation: false
+  generic_queries:
+    type: text
+    influence_conversation: false
+  access_queries:
+    type: text
+    influence_conversation: false
+  service_type:
+    type: text
+    influence_conversation: false
+  dashboard_name:
+    type: text
+    influence_conversation: false
+  confirm_access:
+    type: text
+    influence_conversation: false
+  onedna_access:
+    type: text
+    influence_conversation: false
+  access_request:
+    type: text
+    influence_conversation: false
+  access_issue:
+    type: text
+    influence_conversation: false
+  about_onedna:
+    type: text
+    influence_conversation: false
+  first_last_name:
+    type: text
+    influence_conversation: false
+  email_id:
+    type: text
+    influence_conversation: false
+  requested_slot:
+    type: unfeaturized
+    influence_conversation: false
+responses:
+  utter_serivces_offered:
+  - buttons:
+    - payload: enter_data{{"service_type":"OneDNA"}}
+      title: About OneDNA/Data Studio
+      type: postBack
+    - payload: enter_data{{"service_type":"AccessQuery"}}
+      title: OneDNA Access Queries/Issues
+      type: postBack
+    - payload: enter_data{{"service_type":"FeatureRequest"}}
+      title: Feature Request
+      type: postBack
+    - payload: enter_data{{"service_type":"Feedback"}}
+      title: Dashboard Feedback
+      type: postBack
+    - payload: enter_data{{"service_type":"QuickInsights"}}
+      title: Market Quick Insights
+      type: postBack
+    - payload: enter_data{{"service_type":"Unsubscribe"}}
+      title: Unsubscribe from OneDNA
+      type: postBack
+    text: 'Hey! Welcome to Assist a Bot Service! Please select the service that you
+      want to avail from the following list:'
+  utter_service_query:
+  - text: Great! What do you want to know about OneDNA/Data Studio?
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_hope_that_help:
+  - text: Glad that I was able to help!
+  utter_goodbye:
+  - text: Bye
+  utter_help_create_issue:
+  - text: Sure, I'll help you with creating an issue. Please provide following information
+  utter_generic_queries:
+  - buttons:
+    - payload: enter_data{{"about_onedna":"DashboardList"}}
+      title: List of OneDNA Dashboards
+      type: postBack
+    - payload: enter_data{{"about_onedna":"DashboardDataSources"}}
+      title: List of Datasources powering OneDNA Dashboards
+      type: postBack
+    text: "OneDNA or Data Studio is the central place for Data & Analytics. Bringing\
+      \ together people across the varied Teams, Departments, Agencies and Brands.\
+      \ To break silos and share knowledge, ideas and experiences. To set sustainable\
+      \ and scalable global standards in order to drive the use of data analytics\
+      \ in making better decisions.\nOneDNA or Data Studio uses Power BI Service to\
+      \ visualise your insights. Power BI Service provides you a wide range of sharing\
+      \ and presentation options. Easily share your dashboards via URL, create scheduled\
+      \ reports or communicate directly to management, partners and clients using\
+      \ Presentation Mode. \n To know more about OneDNA please select any of the options\
+      \ given below:"
+  utter_dashboard_list:
+  - buttons:
+    - payload: enter_data{{"dashboard_name":"ContentAttribution"}}
+      title: Content Attribution Dashboard
+      type: postBack
+    - payload: enter_data{{"dashboard_name":"ChannelAttribution"}}
+      title: Channel Attribution Dashboard
+      type: postBack
+    text: 'OneDNA/Data Studio comprises of the following dashboards:'
+  utter_access_queries:
+  - text: "Access request comes from end user / data strategist / leadership team\
+      \ and upon approval, Approver Share the credentials with user \n To know more\
+      \ :https://tools.publicis.sapient.com/confluence/display/EMIL/Access+Management+Process"
+  utter_about_content_attribution:
+  - text: Content Attribution dashboard helps identifying specific items of content
+      (text, banners, links, videos, buttons, etc.) which may be attributed for user
+      conversion, using page and event level data through machine learning.
+  utter_about_channel_attribution:
+  - text: Channel Attribution dashboard helps identify the right channels that drive
+      engagement and lead conversion in order to effectively market campaigns.
+  utter_about_onedna_datasources:
+  - text: "The following data sources power various OneDNA dashboards: \n 1. Adobe\
+      \ analytics \n 2. DV360 \n 3. Tradedesk"
+  utter_ask_about_access:
+  - buttons:
+    - payload: enter_data{{"confirm_access":"Yes"}}
+      title: Yes, I do
+      type: postBack
+    - payload: enter_data{{"confirm_access":"No"}}
+      title: No, I don't
+      type: postBack
+    text: Do you have access to OneDNA?
+  utter_access_confirm_response:
+  - text: Great! Then hop to https://app.powerbi.com to access the OneDNA dashboards
+      and get actionable insights
+  utter_access_issue_elaborate:
+  - text: Please elaborate your issue
+  utter_thanks_access_issue_elaborate:
+  - text: Thank you for raising the issue
+  utter_access_deny_response:
+  - buttons:
+    - payload: enter_data{{"access_request":"Yes"}}
+      title: Yes, please go ahead
+      type: postBacks
+    - payload: enter_data{{"access_request":"No"}}
+      title: No, that's fine for now
+      type: postBack
+    text: Do you want me to create a new access request for you?
+  utter_ask_any_issue_access:
+  - buttons:
+    - payload: enter_data{{"access_issue":"Yes"}}
+      title: Yes, please go ahead
+      type: postBacks
+    - payload: enter_data{{"access_issue":"No"}}
+      title: No, that's fine for now
+      type: postBack
+    text: Are you facing any issue with your current access?
+  utter_ask_project:
+  - buttons:
+    - payload: enter_data{{"project":"DMPP"}}
+      title: Access Management
+      type: postBack
+    - payload: enter_data{{"project":"KaaS"}}
+      title: KaaS
+      type: postBack
+    text: Please provide project name
+  utter_ask_first_last_name:
+  - text: Please share your Name (format - Firstname Lastname)
+  utter_ask_email_id:
+  - text: Please share your Email ID
+  utter_ask_summary:
+  - text: Please mention issue summary
+  utter_ask_description:
+  - text: Please mention issue description
+  utter_say_temp_issue:
+  - text: creating an issue for you
+  utter_ask_assignee:
+  - text: To whom you want to assign this issue?
+  utter_summarize_existing_access_issue:
+  - text: Please summarize your access issue
+  utter_slots_values:
+  - text: "Here is the summary of the Ticket raised :\n summary: Access to OneDNA\
+      \ Dashboards for {first_last_name}\n description: Email ID - {email_id}"
+  utter_anything_else:
+  - text: Is there anything else I can help you with?
+  utter_not_sure:
+  - text: Hmm, not sure what you mean...
+  utter_possibilities:
+  - text: "To know more visit : \n https://tools.publicis.sapient.com/confluence/pages/viewpage.action?spaceKey=EMIL&title=Access+Management+-+Global+Data+Studio+Dashboards\
+      \ \n Or I can help you with :\n- Create issues\n- Show your issue details"
+  utter_what_help:
+  - text: Ok, what can I help you with?
+  utter_thumbsup:
+  - text: Got it.
+  - text: 👍
+  utter_work_in_progress:
+  - text: This service is Work In Progress right now. Please check back late. Apologies
+      for the inconvinience caused
+actions:
+- action_create_issue
+- action_show_issues
+- action_show_issue_details
+- action_access_queries
+- action_generic_queries
+- action_quick_insights
+- action_quick_stats
+- utter_greet
+- utter_serivces_offered
+- utter_service_query
+- utter_did_that_help
+- utter_goodbye
+- utter_help_create_issue
+- utter_generic_queries
+- utter_access_queries
+- utter_ask_project
+- utter_ask_summary
+- utter_ask_description
+- utter_say_temp_issue
+- utter_ask_assignee
+- utter_slots_values
+- utter_anything_else
+- utter_not_sure
+- utter_possibilities
+- utter_what_help
+- utter_thumbsup
+- utter_hope_that_help
+- utter_dashboard_list
+- utter_about_content_attribution
+- utter_about_channel_attribution
+- utter_ask_about_access
+- utter_access_confirm_response
+- utter_access_deny_response
+- utter_ask_first_last_name
+- utter_ask_email_id
+- utter_about_onedna_datasources
+- utter_summarize_existing_access_issue
+- utter_access_issue_elaborate
+- utter_thanks_access_issue_elaborate
+forms:
+  create_issue_form:
+    email_id:
+    - entity: email_id
+      type: from_text
+    - intent: enter_data
+      type: from_text
+    first_last_name:
+    - entity: first_last_name
+      type: from_text
+    - intent: enter_data
+      type: from_text

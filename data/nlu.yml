@@ -1,0 +1,210 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: generic_queries
+  examples: |
+    - Generic OneDNA queries
+    - generic query
+    - onedna queries
+- intent: onedna_queries
+  examples: |
+    - What is OneDNA ?
+    - What is Data Studio ?
+    - Explain OneDNA
+    - enter_data{{"service_type":"OneDNA"}}
+- intent: dashboard_list_queries
+  examples: |
+    - OneDNA dashboards
+    - Data Studio dashboards
+    - list of OneDNA dashboards
+    - list of Data Studio dashboards
+    - enter_data{{"about_onedna":"DashboardList"}}
+- intent: dashboard_datasources_list_queries
+  examples: |
+    - OneDNA dashboard datasources
+    - Data Studio dashboard datasources
+    - list of OneDNA dashboard datasources
+    - list of Data Studio dashboard datasources
+    - enter_data{{"about_onedna":"DashboardDataSources"}}
+- intent: content_attribution_queries
+  examples: |
+    - Content Attribution dashboard
+    - What is Content Attribution dashboard
+    - About Content Attribution dashboard
+    - enter_data{{"dashboard_name":"ContentAttribution"}}
+- intent: channel_attribution_queries
+  examples: |
+    - Channel Attribution dashboard
+    - What is Channel Attribution dashboard
+    - About Channel Attribution dashboard
+    - enter_data{{"dashboard_name":"ChannelAttribution"}}
+- intent: feature_request
+  examples: |
+    - enter_data{{"service_type":"FeatureRequest"}}
+    - I want to suggest a feature request
+    - feature request
+    - request a feature change
+    - i have an idea to improve dashboard
+- intent: feedback
+  examples: |
+    - enter_data{{"service_type":"Feedback"}}
+    - I want to share my feedback
+    - feedback
+    - I have a feedback
+- intent: quote_first_last_name
+  examples: |
+    - My name is [John Wick](first_last_name)
+    - [John Wick](first_last_name)
+    - I am [John Wick](first_last_name)
+    - a m
+- intent: quote_email_id
+  examples: |
+    - My email id is [a@gmail.com](email_id)
+    - [a@gmail.com](email_id)
+    - av
+- intent: access_queries
+  examples: |
+    - access related queries
+    - access queries
+    - access procedure
+    - access guidelines
+    - How to get access to OneDNA/Data Studio dashboards
+    - What is the procedure to get access to OneDNA/Data Studio dashboards
+    - OneDNA/Data Studio dashboard training schedule
+- intent: access_request
+  examples: |
+    - enter_data{{"service_type":"AccessQuery"}}
+- intent: quick_stats
+  examples: |
+    - how [india](state) is performing with respect to corona issue as of today
+    - [corona](state)
+    - [karnatak](state)
+    - [bihar](state)
+    - [delhi](state)
+    - [punjab](state)
+    - [west bengal](state)
+    - can you please provide the current stats about [assam](state)
+    - looking for quick stats for [goa](state)
+    - looking for current cases for [goa](state)
+    - current statistics for [corona](state)
+- intent: quick_insights
+  examples: |
+    - quick insights[corona](state)
+    - quick insights[karnatak](state)
+    - quick insights[Kerala](state)
+    - quick insights[delhi](state)
+    - can you please provide the quick insights about [Delhi](state)
+    - looking for quick insights for [Delhi](state)
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yes please
+    - ya
+    - yup
+    - enter_data{{"confirm_access":"Yes"}}
+    - enter_data{{"access_request":"Yes"}}
+    - enter_data{{"access_issue":"Yes"}}
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - nope
+    - nah
+    - nothing
+    - I don't think so
+    - don't like that
+    - enter_data{{"confirm_access":"No"}}
+    - enter_data{{"access_request":"No"}}
+    - enter_data{{"access_issue":"No"}}
+- intent: create_issue
+  examples: |
+    - I want to get access to OneDNA/Data Studio dashboards
+    - I cannot access OneDNA/Data Studio dashboards
+    - I am not able to access the oneDNA dashboard
+    - looking for dashboard access
+    - access issue
+    - I want to create an issue
+    - create issue for me
+    - create issue
+    - can you please create issue for me
+    - create a jira issue
+    - create jira ticket
+    - create an issue
+    - want to create an issue
+    - ceate n issue
+    - create an issue for me
+    - I cannot access content attribution dashboard
+- intent: issue_details
+  examples: |
+    - What is the status of my access request?
+    - issue status
+    - issue details
+    - I want to know details of issue
+    - status of issue
+- intent: nlu_fallback
+  examples: |
+    - CHBT
+- intent: mood_sad
+  examples: |
+    - /mood_sad
+- intent: enter_data
+  examples: |
+    - enter_data{{"project":DMPP}}
+    - this is test issue
+    - this is test desc
+    - this is test summary
+    - atiw40
+    - enter_data{{'issue_id':DDMP}}
+- intent: show_issues
+  examples: |
+    - show all my issues
+    - show all issues
+    - all issues assigned to me
+    - my issues
+    - show all issues assigned to me
+    - show me all issues
+    - show issues
+- intent: thankyou
+  examples: |
+    - thanks
+    - thank you
+- intent: work_in_progress
+  examples: |
+    - enter_data{{"service_type":"QuickInsights"}}
+    - enter_data{{"service_type":"Unsubscribe"}}
+- regex: issue_id
+  examples: |
+    - ([A-Z][A-Z0-9]+-[0-9]+)
